@@ -10,7 +10,7 @@ export const Navbar = () => {
       <input
         type="text"
         placeholder="Search title here.."
-        className="border rounded-full px-4 py-1"
+        className="border border-gray-400 rounded-xl px-6 py-1"
       />
       {/* menu */}
       <div className=" hidden md:flex  gap-4 font-semibold">
