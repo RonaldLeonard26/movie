@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import { formatRating } from '../../utils/Format';
 
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/original/';
 export const MovieCard = ({ movie }) => {
@@ -18,7 +19,7 @@ export const MovieCard = ({ movie }) => {
       <div className="flex items-start pt-2 flex-col space-y-2">
         <p className="font-semibold">{movie.title}</p>
         <div className="flex items-center justify-between w-full">
-          <p>{movie.vote_average}</p>
+          <p>{formatRating(movie.vote_average)}</p>
           <button>
             <Heart />
           </button>

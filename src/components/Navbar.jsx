@@ -2,9 +2,9 @@ import React from 'react';
 
 export const Navbar = () => {
   return (
-    <nav className="flex px-6 py-4 items-center justify-between">
+    <nav className=" flex px-6 py-4 items-center justify-between shadow-sm">
       {/* logo */}
-      <h2>iMovie</h2>
+      <h2 className="text-2xl font-bold">iMovie</h2>
 
       {/* search */}
       <input
@@ -13,7 +13,7 @@ export const Navbar = () => {
         className="border rounded-full px-4 py-1"
       />
       {/* menu */}
-      <div className=" hidden md:flex gap-4">
+      <div className=" hidden md:flex  gap-4 font-semibold">
         <a href="#">Movies</a>
         <a href="#">Genre</a>
         <a href="#">Trending</a>

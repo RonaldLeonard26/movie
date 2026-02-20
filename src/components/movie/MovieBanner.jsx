@@ -5,7 +5,7 @@ export const MovieBanner = ({ movie }) => {
     <div
       style={{
         height: '380px',
-        width: '90%',
+        width: '100%',
         backgroundImage: ` linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), 
         url(${IMAGE_BASE}${movie.poster_path})`,
         backgroundSize: 'cover',
