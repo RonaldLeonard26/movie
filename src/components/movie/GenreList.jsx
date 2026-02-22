@@ -8,7 +8,7 @@ export const GenreList = ({ genres, isLoading }) => {
       <div className="grid grid-cols-3 gap-2">
         {!isLoading &&
           genres.map((genre) => {
-            return <Genre genre={genre} />;
+            return <Genre key={genre.id} genre={genre} />;
           })}
       </div>
     </div>
