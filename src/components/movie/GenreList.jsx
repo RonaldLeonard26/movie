@@ -1,4 +1,3 @@
-import React from 'react';
 import { Genre } from './Genre';
 
 export const GenreList = ({ genres, isLoading }) => {

@@ -11,13 +11,13 @@ const HomePage = () => {
   const { topRatedMovies, isLoadingTopRated } = useFetchTopRatedMovie();
   const { genres, isLoadingGenres } = useFetchGenres();
   return (
-    <div className="max-w-screen">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] m-4 ">
+    <div className="max-w-screen m-4">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_300px]">
         <div>
           <MovieBanner movie={bannerMovie} />
           <MovieList movies={movies} isLoading={isLoading} />
         </div>
-        <div className="space-y-4">
+        <div>
           <GenreList genres={genres} isLoading={isLoadingGenres} />
           <TopRatedMovie
             movies={topRatedMovies}

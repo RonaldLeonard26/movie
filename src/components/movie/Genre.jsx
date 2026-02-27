@@ -1,9 +1,7 @@
-import React from 'react';
-
 export const Genre = ({ genre }) => {
   return (
-    <div className="rounded-lg shadow-sm items-center justify-center ">
-      <p className="font-stretch-50% text-center">{genre.name}</p>
+    <div className="px-4 py-2  rounded-lg shadow-sm flex items-center justify-center ">
+      <p className="text-sm font-medium text-center">{genre.name}</p>
     </div>
   );
 };

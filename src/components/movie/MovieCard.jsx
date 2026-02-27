@@ -13,19 +13,21 @@ export const MovieCard = ({ movie }) => {
     <div
       onClick={goToDetail}
       key={movie.id}
-      className=" content-center shadow-sm rounded-lg transition-all hover:scale-105 cursor pointer"
+      className=" w-50 h-90 flex flex-col items-center justify-center shadow-sm rounded-lg transition-all hover:scale-105 cursor pointer"
     >
-      <img
-        src={`${IMAGE_BASE}${movie.poster_path}`}
-        alt=""
-        className="rounded-md"
-        width={200}
-        height={50}
-      />
+      <div className="p-2">
+        <img
+          src={`${IMAGE_BASE}${movie.poster_path}`}
+          alt=""
+          className="rounded-md aspect-auto object-cover"
+          width={200}
+          height={50}
+        />
+      </div>
 
-      <div className="flex pt-2 flex-col space-y-2">
-        <p className="font-semibold">{movie.title}</p>
-        <div className="flex items-center justify-between min-w-full">
+      <div className="flex px-4 flex-col space-y-2 w-full">
+        <p className="font-semibold truncate">{movie.title}</p>
+        <div className="flex items-center justify-between pb-2 ">
           <p>{formatRating(movie.vote_average)}</p>
           <button>
             <Heart />

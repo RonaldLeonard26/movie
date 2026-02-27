@@ -3,6 +3,7 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import { SearchPage } from './pages/SearchPage';
 import { DetailPage } from './pages/DetailPage';
+import { FavoritePage } from './pages/FavoritePage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: 'detail/:movieId',
         element: <DetailPage />,
+      },
+      {
+        path: 'favorites',
+        element: <FavoritePage />,
       },
     ],
   },

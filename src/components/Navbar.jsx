@@ -16,7 +16,9 @@ export const Navbar = () => {
   return (
     <nav className=" flex px-6 py-4 items-center justify-between shadow-sm">
       {/* logo */}
-      <h2 className="text-2xl font-bold">iMovie</h2>
+      <h2 className="text-2xl font-bold">
+        <a href="/"> iMovie</a>
+      </h2>
 
       {/* search */}
       <form onSubmit={handleSubmit}>
@@ -31,10 +33,10 @@ export const Navbar = () => {
 
       {/* menu */}
       <div className=" hidden md:flex  gap-4 font-semibold">
-        <a href="#">Movies</a>
+        <a href="/">Movies</a>
         <a href="#">Genre</a>
         <a href="#">Trending</a>
-        <a href="#">Favorit</a>
+        <a href="/favorites">Favorit</a>
       </div>
     </nav>
   );

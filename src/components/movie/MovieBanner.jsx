@@ -14,11 +14,13 @@ export const MovieBanner = ({ movie }) => {
         alignItems: 'flex-end',
         padding: '20px',
       }}
-      className="container rounded-2xl mb-4"
+      className="container rounded-2xl"
     >
       <div>
         <h1 className="font-bold text-2xl text-white">{movie.title}</h1>
-        <p>{movie.overview?.slice(0, 150)}</p>
+        <p className="text-2xl font-light text-gray-400">
+          {movie.overview?.slice(0, 200)}
+        </p>
       </div>
     </div>
   );
