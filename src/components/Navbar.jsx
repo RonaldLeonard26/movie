@@ -1,3 +1,4 @@
+import { Clapperboard } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,16 +17,19 @@ export const Navbar = () => {
   return (
     <nav className=" flex px-6 py-4 items-center justify-between shadow-sm">
       {/* logo */}
-      <h2 className="text-2xl font-bold">
-        <a href="/"> iMovie</a>
-      </h2>
+      <div className="flex gap-2 justify-center items-center">
+        <Clapperboard size={28} />
+        <h2 className="text-2xl font-bold">
+          <a href="/"> iMovie</a>
+        </h2>
+      </div>
 
       {/* search */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search title here.."
-          className="border border-gray-400 rounded-xl px-6 py-1"
+          className="border border-gray-400 rounded-xl px-6 py-1 focus:outline-none focus:ring-2 focus:ring-black/20"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

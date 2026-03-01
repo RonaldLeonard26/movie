@@ -2,7 +2,7 @@ import { MovieCard } from './MovieCard';
 
 export const MovieList = ({ movies, isLoading }) => {
   return (
-    <section className=" container grid grid-cols-4 gap-4 ">
+    <section className=" grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4 ">
       {!isLoading &&
         movies?.map((movie) => {
           return <MovieCard key={movie.id} movie={movie} />;

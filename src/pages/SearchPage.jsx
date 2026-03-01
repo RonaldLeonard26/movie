@@ -8,7 +8,7 @@ export const SearchPage = () => {
 
   const { movies, isLoading } = useSearchMovie(query);
   return (
-    <div>
+    <div className="max-w-7xl mx-auto p-4">
       <h2>Search result : {query}</h2>
       <MovieList movies={movies} isLoading={isLoading} />
     </div>

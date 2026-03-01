@@ -14,7 +14,7 @@ export const DetailPage = () => {
   const favorite = isFavorite(movie.id);
 
   return (
-    <div className="container m-4">
+    <div className="max-w-7xl mx-auto p-4">
       {isLoading && <span>Loading...</span>}
       {error && <span>Terjadi Kesalahan!!</span>}
       {movie && (

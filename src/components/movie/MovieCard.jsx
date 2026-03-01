@@ -13,13 +13,13 @@ export const MovieCard = ({ movie }) => {
     <div
       onClick={goToDetail}
       key={movie.id}
-      className=" w-50 h-90 flex flex-col items-center justify-center shadow-sm rounded-lg transition-all hover:scale-105 cursor pointer"
+      className="flex flex-col items-center justify-center shadow-sm rounded-lg transition-all hover:bg-gray-200 cursor pointer"
     >
       <div className="p-2">
         <img
           src={`${IMAGE_BASE}${movie.poster_path}`}
           alt=""
-          className="rounded-md aspect-auto object-cover"
+          className="rounded-md object-cover"
           width={200}
           height={50}
         />
