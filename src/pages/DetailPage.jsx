@@ -3,6 +3,7 @@ import { useFetchDetailMovie } from '../hooks/useFetchDetailMovie';
 import { getYear } from '../utils/Format';
 import { Heart, HeartOff } from 'lucide-react';
 import { useFavorite } from '../hooks/useFavorite';
+import { DetailSkeleton } from '../components/skeleton/DetailSkeleton';
 
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/original/';
 
@@ -14,31 +15,30 @@ export const DetailPage = () => {
   const favorite = isFavorite(movie.id);
 
   return (
-    <div className="max-w-7xl mx-auto p-4">
-      {isLoading && <span>Loading...</span>}
+    <div className="max-w-7xl mx-auto px-6 py-4">
+      {isLoading && <DetailSkeleton />}
       {error && <span>Terjadi Kesalahan!!</span>}
-      {movie && (
-        <div className="flex justify-center gap-6">
-          <div>
+      {!isLoading && movie && (
+        <div className="flex flex-col md:flex-row justify-center gap-6">
+          <div className="w-full max-w-[180px] sm:max-w-[220px] md:w-[300px] mx-auto md:mx-0 shrink-0">
             <img
               src={`${IMAGE_BASE}${movie.poster_path}`}
               alt={movie.original_title}
-              width={500}
-              className="rounded-md"
+              className="w-full aspect-2/3 object-cover rounded-md"
             />
           </div>
-          <div className="space-y-2">
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">
-                {movie.original_title}{' '}
-                <span className="text-gray-500 font-light">
-                  ({getYear(movie.release_date)})
-                </span>
-              </h2>
-              <p className="font-light text-gray-500 text-lg">
-                {movie?.genres?.map((g) => g.name).join(', ')}
-              </p>
-            </div>
+
+          <div>
+            <h2 className="text-2xl font-bold">
+              {movie.original_title}{' '}
+              <span className="text-gray-500 font-light">
+                ({getYear(movie.release_date)})
+              </span>
+            </h2>
+            <p className="font-light text-gray-500 text-lg pb-4">
+              {movie?.genres?.map((g) => g.name).join(', ')}
+            </p>
+
             <button
               onClick={() =>
                 favorite
@@ -64,6 +64,7 @@ export const DetailPage = () => {
                 </>
               )}
             </button>
+
             <p className="pt-4 text-lg">{movie.overview}</p>
           </div>
         </div>

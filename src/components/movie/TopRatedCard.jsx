@@ -1,11 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import { formatRating, getYear } from '../../utils/Format';
 import { StarRating } from './StarRating';
 
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/original/';
 
 export const TopRatedCard = ({ movie }) => {
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/detail/${movie.id}`);
+  };
   return (
-    <div className="flex items-start gap-2 shadow-sm rounded-lg p-2">
+    <div
+      onClick={goToDetail}
+      className="flex items-start gap-2 shadow-sm rounded-lg p-2 cursor-pointer"
+    >
       <img
         src={`${IMAGE_BASE}${movie.poster_path}`}
         alt={movie.title}
