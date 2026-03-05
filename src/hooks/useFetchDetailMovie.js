@@ -12,7 +12,6 @@ export const useFetchDetailMovie = (movieId) => {
       setError(null);
       try {
         const response = await axiosInstance.get(`/movie/${movieId}`);
-
         setMovie(response.data);
       } catch (err) {
         console.error(err);

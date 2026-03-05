@@ -6,6 +6,7 @@ export const useSearchMovie = (search) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const debounceSearch = useDebounce(search, 500);
 
   useEffect(() => {
@@ -18,8 +19,9 @@ export const useSearchMovie = (search) => {
       setIsLoading(true);
       try {
         const response = await axiosInstance.get(
-          `/search/movie?query=${debounceSearch}`,
+          `/search/movie?query=${encodeURIComponent(debounceSearch)}`,
         );
+        // pake encodeURIComponent karena URL tidak boleh mengandung karakter spesial mentah sperti & : dll.
         setMovies(response.data.results);
       } catch (err) {
         setError(err);
@@ -29,5 +31,6 @@ export const useSearchMovie = (search) => {
     };
     getSearch();
   }, [debounceSearch]);
+
   return { movies, isLoading, error };
 };

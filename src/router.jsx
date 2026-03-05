@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import { SearchPage } from './pages/SearchPage';
 import { DetailPage } from './pages/DetailPage';
 import { FavoritePage } from './pages/FavoritePage';
+import { TrendingPage } from './pages/TrendingPage';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: 'favorites',
         element: <FavoritePage />,
+      },
+      {
+        path: 'trending',
+        element: <TrendingPage />,
       },
     ],
   },

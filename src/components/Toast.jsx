@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Toast = ({ message, type }) => {
   const styles = {
     success: 'bg-green-500',

@@ -13,7 +13,7 @@ export const MovieCard = ({ movie }) => {
     <div
       onClick={goToDetail}
       key={movie.id}
-      className="flex flex-col items-center justify-center shadow-sm rounded-lg transition-all hover:bg-gray-200 cursor pointer"
+      className="flex flex-col items-center justify-center shadow-sm rounded-lg transition-all hover:bg-gray-200 cursor-pointer"
     >
       <div className="p-2">
         <img

@@ -1,28 +1,36 @@
 import { Clapperboard, Menu } from 'lucide-react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
-  const [search, setSearch] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [search, setSearch] = useState('');
 
+  const navigate = useNavigate();
+  // handle input change
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!search.trim()) return;
+    const query = search.trim();
+    if (!query) return;
 
-    navigate(`/search?q=${search}`);
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+    setSearch('');
   };
 
   return (
     <nav className="flex px-6 py-4 items-center justify-between shadow-sm">
       {/* logo */}
       <div className=" flex gap-2 justify-center items-center">
-        <a className="flex items-center gap-1.5" href="/">
+        <Link className="flex items-center gap-1.5" href="/">
           <Clapperboard />
           <h2 className="text-lg md:text-2xl font-bold">iMovie</h2>
-        </a>
+        </Link>
       </div>
 
       {/* search */}
@@ -32,16 +40,24 @@ export const Navbar = () => {
           placeholder="Search title here.."
           className="border border-gray-400 rounded-xl px-6 py-1 focus:outline-none focus:ring-2 focus:ring-black/20"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleChange}
         />
       </form>
 
       {/* menu */}
       <div className=" hidden md:flex gap-4 font-semibold">
-        <a href="/">Movies</a>
-        <a href="#">Genre</a>
-        <a href="#">Trending</a>
-        <a href="/favorites">Favorite</a>
+        <Link to="/" className="hover:scale-90 hover:text-gray-500 ">
+          Movies
+        </Link>
+        <Link to="#" className="hover:scale-90 hover:text-gray-300">
+          Genre
+        </Link>
+        <Link to="/trending" className="hover:scale-90 hover:text-gray-300">
+          Trending
+        </Link>
+        <Link to="/favorites" className="hover:scale-90 hover:text-gray-300">
+          Favorite
+        </Link>
       </div>
       <button onClick={() => setMenuOpen((v) => !v)} className="md:hidden">
         <Menu />
@@ -57,9 +73,9 @@ export const Navbar = () => {
           }`}
       >
         <div className="flex flex-col pb-2 text-md">
-          <a href="#">Genre</a>
-          <a href="#">Trending</a>
-          <a href="/favorites">Favorite</a>
+          <Link to="#">Genre</Link>
+          <Link to="#">Trending</Link>
+          <Link to="/favorites">Favorite</Link>
         </div>
         <form
           className="flex items-center justify-center"
@@ -70,7 +86,7 @@ export const Navbar = () => {
             placeholder="Search title here.."
             className="border w-full border-gray-400 rounded-xl px-6 py-1 focus:outline-none focus:ring-2 focus:ring-black/20"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleChange}
           />
         </form>
       </div>
